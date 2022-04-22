@@ -55,8 +55,8 @@ for (let i = 0; i < input_data.length; i++) {
 		} else {
 			inputMsg[i].innerHTML = `<i class="fa-solid fa-circle-check" style="color : #8e8e8e;"></i>`;
 			checkFlag[i] = true;
-			if (i == 1) {
-				/*$.ajax({
+			if (i == 2) {
+				$.ajax({
 					type: "get",
 					url: "/app/auth/username/check",
 					data: {
@@ -72,9 +72,9 @@ for (let i = 0; i < input_data.length; i++) {
 							checkFlag[i] = true;
 						}
 					}
-				});*/
+				});
 
-				$.ajax({
+				/*$.ajax({
 					type: "get",
 					url: "/app/auth/name/check",
 					data: {
@@ -89,7 +89,7 @@ for (let i = 0; i < input_data.length; i++) {
 					error: function() {
 						alert("비동기 처리 오류");
 					}
-				});
+				});*/
 			}
 
 		}
