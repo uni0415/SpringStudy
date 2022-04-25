@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class userRepositoryImpl implements UserRepository {
+public class UserRepositoryImpl implements UserRepository {
 	@Autowired
 	private SqlSession session;
 	private final String NAME_SPACE = "com.instagram.app.domain.user.UserRepository.";
