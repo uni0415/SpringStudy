@@ -22,5 +22,10 @@ public class PageController {
 		return "auth/signup";
 	}
 	
+	
+	@RequestMapping(value="/profile/account", method=RequestMethod.GET)
+	public String getAccount() {
+		return "profile/account/account";
+	}
 
 }
