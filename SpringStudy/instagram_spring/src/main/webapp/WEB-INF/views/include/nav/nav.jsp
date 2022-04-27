@@ -27,4 +27,4 @@
 		</ul>
 	</div>
 </nav>
-<script src="app/static/js/nav.js"></script>
+<script src="/app/static/js/nav.js"></script>
