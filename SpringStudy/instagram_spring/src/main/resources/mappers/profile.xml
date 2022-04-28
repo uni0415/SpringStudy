@@ -54,4 +54,14 @@
   	</update>
   	
   	
+  	<update id="updatePassword" parameterType="com.instagram.app.domain.user.User">
+  		update
+  			user_mst
+  		set
+  			password = #{password},
+  			update_date = now()
+  		where
+  			usercode = #{usercode};
+  	</update>
+  	
   </mapper>
