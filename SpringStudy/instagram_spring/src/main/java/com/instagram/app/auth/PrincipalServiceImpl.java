@@ -4,6 +4,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.instagram.app.domain.profile.ProfileImg;
+import com.instagram.app.domain.profile.ProfileRepository;
 import com.instagram.app.domain.user.User;
 import com.instagram.app.domain.user.UserRepository;
 
@@ -11,6 +13,8 @@ import com.instagram.app.domain.user.UserRepository;
 public class PrincipalServiceImpl implements PrincipalService {
 	@Autowired
 	private UserRepository repository;
+	@Autowired
+	private ProfileRepository profileRepository;
 	
 	@Override
 	public User loadUserByUsername(String username) {
@@ -25,6 +29,11 @@ public class PrincipalServiceImpl implements PrincipalService {
 		}else {
 			return false;
 		}
+	}
+	
+	@Override
+	public ProfileImg getProfileImg(int usercode) {
+		return profileRepository.getProfileImg(usercode);
 	}
 	
 }

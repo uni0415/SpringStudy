@@ -64,6 +64,7 @@
 							</div>
 							<div class="box-item-right">
 								<h1 class="profile-username">gye0ng_un</h1>
+								<input type="file" class="profile-img-file" name="file">
 								<div class="update-img-button">프로필 사진 바꾸기</div>
 							</div>
 						</form>

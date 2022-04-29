@@ -10,7 +10,7 @@ import com.instagram.app.domain.user.User;
 public class ProfileRepositoryImpl implements ProfileRepository {
 	@Autowired
 	private SqlSession session;
-	private final String NAME_SPACE = "com.instagram.app.domain.profile.ProfileRepository";
+	private final String NAME_SPACE = "com.instagram.app.domain.profile.ProfileRepository.";
 	@Override
 	public Account getAccountProfileByUsercode(int usercode) {
 		return session.selectOne(NAME_SPACE + "getAccountProfileByUsercode",usercode);
@@ -29,5 +29,15 @@ public class ProfileRepositoryImpl implements ProfileRepository {
 	@Override
 	public int updatePassword(User user) {
 		return session.update(NAME_SPACE + "updatePassword", user);
+	}
+	
+	@Override
+	public int updateProfileImg(ProfileImg profileImg) {
+		return session.update(NAME_SPACE + "updateProfileImg", profileImg);
+	}
+	
+	@Override
+	public ProfileImg getProfileImg(int usercode) {
+		return session.selectOne(NAME_SPACE + "getProfileImg", usercode);
 	}
 }

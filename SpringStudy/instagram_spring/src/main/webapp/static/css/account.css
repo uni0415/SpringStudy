@@ -78,6 +78,10 @@ article {
 
 }
 
+.profile-img-file{
+	display: none;
+}
+
 .profile-img-round img {
     max-width: 38px;
     max-height: 38px;
@@ -127,6 +131,7 @@ article {
     color: #0095f6;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .box-item-left label {
