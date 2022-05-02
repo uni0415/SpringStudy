@@ -2,6 +2,7 @@ const submitBtn = document.querySelector(".submit-btn");
 const profileUsername = document.querySelector(".profile-username");
 const passwordInputs = document.querySelectorAll(".password-input");
 const boxItemLefts = document.querySelectorAll(".box-item-left");
+const profileImgRound = document.querySelector(".profile-img-round");
 
 
 let usercode = 0;
@@ -11,7 +12,9 @@ let principal = getPrincipal();
 load();
 
 function load() {
+	const profileImg = profileImgRound.querySelector("img");
 	profileUsername.textContent = principal.username;
+	profileImg.src = getProfileImg();
 }
 
 

@@ -3,8 +3,8 @@
 <head>
 <link rel="stylesheet" href="/app/static/css/style.css">
 <link rel="stylesheet" href="/app/static/css/nav.css">
-<script src="https://kit.fontawesome.com/bb961630db.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/bb961630db.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <nav class="nav-container">
 	<div class="nav-bar">
@@ -27,4 +27,5 @@
 		</ul>
 	</div>
 </nav>
+<script src="/app/static/js/principal.js"></script>
 <script src="/app/static/js/nav.js"></script>

@@ -13,7 +13,9 @@ let principal = getPrincipal();
 load();
 
 function load() {
+	const profileImg = profileImgRound.querySelector("img");
 	profileUsername.textContent = principal.username;
+	profileImg.src = getProfileImg();
 }
 
 
