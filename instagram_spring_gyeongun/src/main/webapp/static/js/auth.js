@@ -1,0 +1,51 @@
+const input_items = document.querySelectorAll(".input-items");
+const username_input = input_items[0].querySelector("input");
+const username_label = input_items[0].querySelector("label");
+const password_input = input_items[1].querySelector("input");
+const password_label = input_items[1].querySelector("label");
+const signin_button = input_items[2].querySelector("button");
+
+
+username_input.onkeydown = (e) => {
+    if (e.keyCode == 13) {
+        if (username_input.value.length==0) {
+            alert("아이디를 입력해주세요.");
+            return;
+        }
+        password_input.focus();
+    } else {
+        username_label.style.top = "2px";
+        username_label.style.fontSize = "11px";
+    }
+}
+
+username_input.onkeyup = () => {
+    if (username_input.value.length == 0) {
+        username_label.style.top = "10px";
+        username_label.style.fontSize = "13px";
+    }
+}
+
+password_input.onkeydown = (e) => {
+    if (e.keyCode == 13) {
+		if(password_input.value.length == 0){
+			alert("비밀번호를 입력해주세요.");
+			return;
+		}
+        document.querySelector("form").submit();
+    } else {
+        password_label.style.top = "2px";
+        password_label.style.fontSize = "11px";
+    }
+}
+
+password_input.onkeyup = () => {
+    if (password_input.value.length == 0) {
+        password_label.style.top = "10px";
+        password_label.style.fontSize = "13px";
+    }
+}
+
+
+
+
