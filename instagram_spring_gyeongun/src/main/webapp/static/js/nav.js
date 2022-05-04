@@ -4,7 +4,7 @@ const bLogo = document.querySelector(".b-logo");
 load();
 
 function load() {
-	//profileImg.src = getProfileImg();
+	profileImg.src = getProfileImg();
 }
 
 profileImg.onclick = () => {

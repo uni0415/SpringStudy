@@ -16,31 +16,43 @@ public class AuthServiceImpl implements AuthService {
 	private UserRepository userRepository;
 	@Autowired
 	private PrincipalService principalService;
-	
+
 	@Override
 	public boolean signup(SignupRequestDto signupRequestDto) {
-		if(userRepository.signup(signupRequestDto.toEntity())!=0) {
+		if (userRepository.signup(signupRequestDto.toEntity()) != 0) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@Override
 	public boolean checkUsername(String username) {
-		if(userRepository.checkUsername(username)!=0) {
+		if (userRepository.checkUsername(username) != 0) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@Override
 	public User signin(String username, String password) {
-		String getPassword = userRepository.getPassword(username);
-		if(BCrypt.checkpw(password, getPassword)) {
-			return principalService.getUserByUsername(username);
-		}else {
+		if (userRepository.checkUsername(username) != 0) {
+			String getPassword = userRepository.getPassword(username);
+			if (BCrypt.checkpw(password, getPassword)) {
+				return principalService.getUserByUsername(username);
+			}else {
+				return null;
+			}
+		} else {
 			return null;
 		}
 	}
 	
+	@Override
+	public boolean findPassword(String username, String phone) {
+		if(userRepository.checkUsername(username)!=0) {
+			
+		}
+		return false;
+	}
+
 }

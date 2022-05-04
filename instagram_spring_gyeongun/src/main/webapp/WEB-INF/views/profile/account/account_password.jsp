@@ -19,9 +19,11 @@
             <div id="container">
                 <article>
                     <section class="side-bar">
+                      <a href="/gyeongun/profile/account">
                         <div class="side-bar-item">
                             <h3>프로필 편집</b>
                         </div>
+                      </a>
                         <div class="side-bar-item clicked">
                             <h3>비밀번호 변경</b>
                         </div>

@@ -18,7 +18,7 @@ function getPrincipal() {
 	
 }
 
-/*function getProfileImg() {
+function getProfileImg() {
 	let imgUrl = null;
 	$.ajax({
 		type:"get",
@@ -33,4 +33,4 @@ function getPrincipal() {
 		}
 	})
 	return imgUrl;
-}*/
+}

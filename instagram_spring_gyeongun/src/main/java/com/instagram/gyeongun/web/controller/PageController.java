@@ -32,4 +32,9 @@ public class PageController {
 		return "/profile/account/account_password";
 	}
 	
+	@RequestMapping(value="/auth/find_password", method=RequestMethod.GET)
+	public String findPassword() {
+		return "/auth/find_password";
+	}
+	
 }

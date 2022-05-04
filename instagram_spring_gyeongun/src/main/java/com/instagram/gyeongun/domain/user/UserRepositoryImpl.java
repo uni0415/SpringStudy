@@ -30,4 +30,9 @@ public class UserRepositoryImpl implements UserRepository {
 		return session.selectOne(NAME_SPACE + "getPassword", username);
 	}
 	
+	@Override
+	public int getPhoneByUsername(String username) {
+		return session.selectOne(NAME_SPACE + "getPhoneByUsername", username);
+	}
+	
 }

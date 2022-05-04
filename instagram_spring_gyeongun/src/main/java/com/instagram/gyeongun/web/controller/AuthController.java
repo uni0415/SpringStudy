@@ -23,7 +23,6 @@ public class AuthController {
 	@ResponseBody
 	@RequestMapping(value="/auth/signup", method=RequestMethod.POST)
 	public String signupSubmit(SignupRequestDto signupRequestDto) {
-		System.out.println(signupRequestDto);
 		if(authService.signup(signupRequestDto)) {
 			return "true";
 		}
@@ -43,7 +42,7 @@ public class AuthController {
 			request.getSession().setAttribute("principal", user);
 			
 		}else {
-			return "redirect: /app/auth/signin/error?msg=" + URLEncoder.encode("로그인 정보를 확인해주세요", "UTF-8");
+			return "redirect: /gyeongun/auth/signin/error?msg=" + URLEncoder.encode("로그인 정보를 확인해주세요", "UTF-8");
 		}
 		return "redirect: /gyeongun/";
 	}

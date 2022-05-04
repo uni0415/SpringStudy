@@ -7,43 +7,47 @@ const signin_button = input_items[2].querySelector("button");
 
 
 username_input.onkeydown = (e) => {
-    if (e.keyCode == 13) {
-        if (username_input.value.length==0) {
-            alert("아이디를 입력해주세요.");
-            return;
-        }
-        password_input.focus();
-    } else {
-        username_label.style.top = "2px";
-        username_label.style.fontSize = "11px";
-    }
+	if (e.keyCode == 13) {
+		if (username_input.value.length == 0) {
+			alert("아이디를 입력해주세요.");
+			return;
+		}
+		password_input.focus();
+	} else {
+		username_label.style.top = "2px";
+		username_label.style.fontSize = "11px";
+	}
 }
 
 username_input.onkeyup = () => {
-    if (username_input.value.length == 0) {
-        username_label.style.top = "10px";
-        username_label.style.fontSize = "13px";
-    }
+	if (username_input.value.length == 0) {
+		username_label.style.top = "10px";
+		username_label.style.fontSize = "13px";
+	}
 }
 
 password_input.onkeydown = (e) => {
-    if (e.keyCode == 13) {
-		if(password_input.value.length == 0){
+	if (e.keyCode == 13) {
+		if (password_input.value.length == 0) {
 			alert("비밀번호를 입력해주세요.");
 			return;
 		}
-        document.querySelector("form").submit();
-    } else {
-        password_label.style.top = "2px";
-        password_label.style.fontSize = "11px";
-    }
+		document.querySelector("form").submit();
+	} else {
+		password_label.style.top = "2px";
+		password_label.style.fontSize = "11px";
+	}
+}
+
+signin_button.onclick = () => {
+	document.querySelector("form").submit();
 }
 
 password_input.onkeyup = () => {
-    if (password_input.value.length == 0) {
-        password_label.style.top = "10px";
-        password_label.style.fontSize = "13px";
-    }
+	if (password_input.value.length == 0) {
+		password_label.style.top = "10px";
+		password_label.style.fontSize = "13px";
+	}
 }
 
 

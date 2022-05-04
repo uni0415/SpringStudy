@@ -51,8 +51,34 @@
 		usercode = #{usercode};
 </update>
 
+<update id="profileUpdateImg" parameterType="com.instagram.gyeongun.domain.profile.ProfileImg">
+	update
+		user_dtl
+	set
+		img_url = #{img_url}
+	where
+		usercode = #{usercode};
+</update>
 
+<select id="getProfileImg" parameterType="Integer" resultType="com.instagram.gyeongun.domain.profile.ProfileImg">
+	select
+		usercode,
+		img_url
+	from
+		user_dtl
+	where
+		usercode = #{usercode};
+</select>
 
+<update id="updatePassword" parameterType="com.instagram.gyeongun.domain.user.User">
+	update
+		user_mst
+	set
+		password = #{password},
+		update_date = now()
+	where
+		username = #{username};
+</update>
 
 
 </mapper>

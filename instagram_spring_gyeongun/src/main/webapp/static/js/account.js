@@ -30,7 +30,7 @@ function load() {
 		}
 	});
 	const profileImg = profileImgRound.querySelector("img");
-	//profileImg.src = getProfileImg();
+	profileImg.src = getProfileImg();
 }
 
 function pageLoad(account) {
@@ -82,14 +82,14 @@ function createAccount() {
 }
 
 profileImgRound.onclick = () => {
-	//imgChange();
+	imgChange();
 }
 
 updateImgBtn.onclick = () => {
-	//imgChange();
+	imgChange();
 }
 
-/*function imgChange() {
+function imgChange() {
 	profileImgFile.click();
 	profileImgFile.onchange = () => {
 		let reader = new FileReader();
@@ -104,7 +104,7 @@ updateImgBtn.onclick = () => {
 					type:"post",
 					url:"/gyeongun/profile/account/update/img",
 					data:formData,
-					encType:"multipart/fomr-data",
+					encType:"multipart/form-data",
 					processData:false,
 					contentType:false,
 					dataType:"text",
@@ -124,7 +124,7 @@ updateImgBtn.onclick = () => {
 		reader.readAsDataURL(profileImgFile.files[0]);
 	}
 	
-}*/
+}
 
 
 

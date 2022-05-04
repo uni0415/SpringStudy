@@ -39,7 +39,7 @@ submitBtn.onclick = () => {
 
 	$.ajax({
 		type: "put",
-		url: "/app/profile/account/password/update",
+		url: "/gyeongun/profile/account/password/update",
 		data: JSON.stringify({
 			"originPassword": passwordInputs[0].value,
 			"newPassword": passwordInputs[1].value
@@ -49,7 +49,7 @@ submitBtn.onclick = () => {
 		success: function(data) {
 			if (data == "true") {
 				alert("비밀번호 변경 완료. 다시 로그인 하세요.");
-				location.replace("/app/logout");
+				location.replace("/gyeongun/logout");
 			} else {
 				alert("이전 비밀번호가 일치하지 않습니다.");
 			}
