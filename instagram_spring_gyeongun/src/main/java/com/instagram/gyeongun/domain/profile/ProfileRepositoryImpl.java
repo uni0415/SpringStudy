@@ -41,4 +41,9 @@ public class ProfileRepositoryImpl implements ProfileRepository {
 	public int updatePassword(User user) {
 		return session.update(NAME_SPACE + "updatePassword", user);
 	}
+	
+	@Override
+	public User getPhoneByUsername(Account account) {
+		return session.selectOne(NAME_SPACE + "getPhoneByUsername", account);
+	}
 }

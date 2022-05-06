@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.instagram.gyeongun.auth.PrincipalService;
+import com.instagram.gyeongun.domain.profile.Account;
 import com.instagram.gyeongun.domain.user.User;
 import com.instagram.gyeongun.domain.user.UserRepository;
 import com.instagram.gyeongun.web.dto.account.AccountUpdateReqDto;
@@ -47,12 +48,4 @@ public class AuthServiceImpl implements AuthService {
 		}
 	}
 	
-	@Override
-	public boolean findPassword(String username, String phone) {
-		if(userRepository.checkUsername(username)!=0) {
-			
-		}
-		return false;
-	}
-
 }

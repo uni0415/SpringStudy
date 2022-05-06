@@ -52,10 +52,5 @@
 			username = #{username};
 	</select>
 	
-	<select id="getPhoneByUsername" parameterType="String" resultType="Integer">
-		select
-			phone
-		
-	</select>
 	
 </mapper>

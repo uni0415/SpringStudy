@@ -24,5 +24,6 @@
         </div>
         <button type="button">비밀번호 찾기</button>
     </div>
+    <script type="text/javascript" src="/gyeongun/static/js/find_password.js"></script>
 </body>
 </html>

@@ -33,4 +33,5 @@ public class AccountUpdateReqDto {
 				.gender(gender)
 				.build();
 	}
+	
 }

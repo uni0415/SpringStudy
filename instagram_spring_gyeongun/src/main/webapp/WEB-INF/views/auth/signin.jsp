@@ -45,7 +45,7 @@
                                     </a>
                                 </div>
                             </form>
-                            <a href="#">비밀번호를 잊으셨나요?</a>
+                            <a href="/gyeongun/profile/find_password">비밀번호를 잊으셨나요?</a>
                         </div>
                     </div>
                     <div class="item-box">

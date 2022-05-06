@@ -63,10 +63,38 @@ public class AccountController {
 		}
 		return Boolean.toString(profileService.updatePassword(passwordUpdateReqDto, user));
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/profile/find_password", method = RequestMethod.POST)
+	public String findPassword(FindPasswordReqDto findPasswordReqDto, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = profileService.findPassword(findPasswordReqDto);
+		if (user != null) {
+			session.setAttribute("change_pw", user);
+			return "true";
+		}
+		return "false";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/profile/checkPassword", method = RequestMethod.POST)
+	public String checkPassword(@RequestBody PasswordUpdateReqDto passwordUpdateReqDto, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("change_pw");
+		return Boolean.toString(profileService.checkPassword(passwordUpdateReqDto, user));
+	}
 	
 	@ResponseBody
-	@RequestMapping(value="/auth/find_password", method=RequestMethod.POST)
-	public String findPassword(String username, String phone) {
-		return null;
+	@RequestMapping(value="/profile/change_password", method=RequestMethod.POST)
+	public String changePassword(PasswordUpdateReqDto passwordUpdateReqDto, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("change_pw");
+		boolean result = profileService.updatePassword(passwordUpdateReqDto, user);
+		if(result) {
+			session.invalidate();
+			return "true";
+		}else {
+			return "false";
+		}
 	}
 }

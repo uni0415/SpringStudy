@@ -1,5 +1,12 @@
 package com.instagram.gyeongun.web.controller;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,13 +35,19 @@ public class PageController {
 	}
 	
 	@RequestMapping(value="/profile/account/password", method=RequestMethod.GET)
-	public String changePassword() {
+	public String accountPassword() {
 		return "/profile/account/account_password";
 	}
 	
-	@RequestMapping(value="/auth/find_password", method=RequestMethod.GET)
+	@RequestMapping(value="/profile/find_password", method=RequestMethod.GET)
 	public String findPassword() {
-		return "/auth/find_password";
+		return "/profile/find_password";
 	}
+	
+	@RequestMapping(value="/profile/change_password", method=RequestMethod.GET)
+	public String changePassword() {
+		return "/profile/change_password";
+	}
+	
 	
 }

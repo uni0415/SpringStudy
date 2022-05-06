@@ -80,5 +80,19 @@
 		username = #{username};
 </update>
 
+	<select id="getPhoneByUsername" parameterType="com.instagram.gyeongun.domain.profile.Account" resultType="com.instagram.gyeongun.domain.user.User">
+		select
+			usercode,
+			username,
+			password,
+			phone
+		from
+			user_mst
+		where
+			username = #{username}
+			and
+			phone = #{phone};
+		
+	</select>
 
 </mapper>

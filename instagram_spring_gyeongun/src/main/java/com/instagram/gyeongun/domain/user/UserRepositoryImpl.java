@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.instagram.gyeongun.domain.profile.Account;
+
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 	@Autowired
@@ -28,11 +30,6 @@ public class UserRepositoryImpl implements UserRepository {
 	@Override
 	public String getPassword(String username) {
 		return session.selectOne(NAME_SPACE + "getPassword", username);
-	}
-	
-	@Override
-	public int getPhoneByUsername(String username) {
-		return session.selectOne(NAME_SPACE + "getPhoneByUsername", username);
 	}
 	
 }

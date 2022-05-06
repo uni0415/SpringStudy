@@ -20,6 +20,7 @@ import com.instagram.gyeongun.web.dto.account.AccountResponseDto;
 import com.instagram.gyeongun.web.dto.account.AccountUpdateImgReqDto;
 import com.instagram.gyeongun.web.dto.account.AccountUpdateReqDto;
 import com.instagram.gyeongun.web.dto.account.PasswordUpdateReqDto;
+import com.instagram.gyeongun.web.dto.auth.FindPasswordReqDto;
 
 @Service
 public class ProfileServiceImpl implements ProfileService {
@@ -72,4 +73,22 @@ public class ProfileServiceImpl implements ProfileService {
 		user.setPassword(BCrypt.hashpw(passwordUpdateReqDto.getNewPassword(), BCrypt.gensalt()));
 		return profileRepository.updatePassword(user) != 0;
 	}
+	
+	@Override
+	public boolean checkPassword(PasswordUpdateReqDto passwordUpdateReqDto, User user) {
+		if(BCrypt.checkpw(passwordUpdateReqDto.getNewPassword(), user.getPassword())) {
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public User findPassword(FindPasswordReqDto findPasswordReqDto) {
+		if(userRepository.checkUsername(findPasswordReqDto.getUsername())!=0) {
+			User user = profileRepository.getPhoneByUsername(findPasswordReqDto.toPhoneEntity());
+				return user;
+			}
+		return null;
+	}
+	
 }
