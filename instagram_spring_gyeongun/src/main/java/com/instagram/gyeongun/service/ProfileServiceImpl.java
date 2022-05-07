@@ -85,7 +85,7 @@ public class ProfileServiceImpl implements ProfileService {
 	@Override
 	public User findPassword(FindPasswordReqDto findPasswordReqDto) {
 		if(userRepository.checkUsername(findPasswordReqDto.getUsername())!=0) {
-			User user = profileRepository.getPhoneByUsername(findPasswordReqDto.toPhoneEntity());
+			User user = profileRepository.getUserByEmailOrPhone(findPasswordReqDto.toPhoneEntity());
 				return user;
 			}
 		return null;

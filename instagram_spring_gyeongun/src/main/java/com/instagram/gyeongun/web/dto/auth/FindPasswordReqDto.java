@@ -13,11 +13,21 @@ import lombok.NoArgsConstructor;
 @Data
 public class FindPasswordReqDto {
 	private String username;
-	private String phone;
+	private String emailOrPhone;
 	
 	public Account toPhoneEntity() {
+		String email = null;
+		String phone = null;
+		
+		if(emailOrPhone.contains("@")) {
+			email = emailOrPhone;
+		}else {
+			phone = emailOrPhone;
+		}
+		
 		return Account.builder()
 				.username(username)
+				.email(email)
 				.phone(phone)
 				.build();
 	}

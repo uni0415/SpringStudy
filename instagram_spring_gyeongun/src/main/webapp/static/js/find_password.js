@@ -1,6 +1,6 @@
 const input = document.querySelectorAll("input");
 const usernameInput = input[0];
-const phoneInput = input[1];
+const emailOrPhoneInput = input[1];
 const submitBtn = document.querySelector("button");
 
 
@@ -10,12 +10,14 @@ submitBtn.onclick = () => {
 		url:"/gyeongun/profile/find_password",
 		data:{
 			"username": usernameInput.value,
-			"phone": phoneInput.value
+			"emailOrPhone": emailOrPhoneInput.value
 		},
 		dataType:"text",
 		success(data){
 			if(data == "true"){
 				location.href="/gyeongun/profile/change_password";
+			} else {
+				alert("없는 정보입니다.");
 			}
 		},
 		error(){

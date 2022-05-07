@@ -43,7 +43,7 @@ public class ProfileRepositoryImpl implements ProfileRepository {
 	}
 	
 	@Override
-	public User getPhoneByUsername(Account account) {
-		return session.selectOne(NAME_SPACE + "getPhoneByUsername", account);
+	public User getUserByEmailOrPhone(Account account) {
+		return session.selectOne(NAME_SPACE + "getUserByEmailOrPhone", account);
 	}
 }

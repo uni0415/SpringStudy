@@ -9,5 +9,5 @@ public interface ProfileRepository {
 	public int profileUpdateImg(ProfileImg profileImg);
 	public ProfileImg getProfileImg(int usercode);
 	public int updatePassword(User user);
-	public User getPhoneByUsername(Account account);
+	public User getUserByEmailOrPhone(Account account);
 }

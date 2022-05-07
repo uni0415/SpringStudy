@@ -19,8 +19,8 @@
             <input type="text" class="username" name="username" placeholder="username">
         </div>
         <div class="input-box">
-            <label for="phone">phone 입력</label>
-            <input type="text" class="phone" name="phone" placeholder="phone">
+            <label for="emailOrPhone">email 또는 phone 입력</label>
+            <input type="text" class="emailOrPhone" name="emailOrPhone" placeholder="emailOrPhone">
         </div>
         <button type="button">비밀번호 찾기</button>
     </div>

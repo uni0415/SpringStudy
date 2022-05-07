@@ -2,6 +2,7 @@ const input = document.querySelectorAll("input");
 const newPasswordInput = input[0];
 const reNewPasswordInput = input[1];
 const submitBtn = document.querySelector("button");
+const label = document.querySelectorAll("label");
 
 let checkPasswordFlag = false;
 let newPasswordCheckFlag = false;
@@ -10,28 +11,28 @@ submitBtn.disabled = true;
 
 
 function isEmpty(str) {
-	str == null || str == "" || typeof str == undefined;
+	return str == null || str == "" || typeof str == "undefined";
 }
 
 
 function buttonFlag() {
 	if (checkPasswordFlag && newPasswordCheckFlag) {
 		submitBtn.disabled = false;
+	} else {
+		submitBtn.disabled = true;
 	}
 }
 
 
 newPasswordInput.onblur = () => {
-	for (let i = 0; i < input.length; i++) {
-		if (isEmpty(input[i].value)) {
-			const labelName = input[i].querySelector("label");
-			alert(labelName + "을(를) 입력해주세요.");
-			return;
-		} else if (newPasswordInput.value == reNewPasswordInput.value) {
-			newPasswordCheckFlag = true;
-			buttonFlag();
-		}
+	if (newPasswordInput.value == reNewPasswordInput.value) {
+		checkPasswordFlag = true;
+		buttonFlag();
+	} else {
+		checkPasswordFlag = false;
+		buttonFlag();
 	}
+
 
 	$.ajax({
 		type: "post",
@@ -43,7 +44,7 @@ newPasswordInput.onblur = () => {
 		contentType: "application/json;charset=utf-8",
 		dataType: "text",
 		success: function(data) {
-			if (data == "true") {
+			if (data == "true" && newPasswordInput.value.length > 1) {
 				checkPasswordFlag = true;
 				alert("변경 가능한 비밀번호입니다.");
 			} else if (data == "false") {
@@ -59,15 +60,12 @@ newPasswordInput.onblur = () => {
 
 
 reNewPasswordInput.onblur = () => {
-	for (let i = 0; i < input.length; i++) {
-		if (isEmpty(input[i].value)) {
-			const labelName = input[i].querySelector("label");
-			alert(labelName + "을(를) 입력해주세요.");
-			return;
-		} else if (newPasswordInput.value == reNewPasswordInput.value) {
-			newPasswordCheckFlag = true;
-			buttonFlag();
-		}
+	if (newPasswordInput.value == reNewPasswordInput.value) {
+		newPasswordCheckFlag = true;
+		buttonFlag();
+	}else {
+		newPasswordCheckFlag = false;
+		buttonFlag();
 	}
 }
 
@@ -80,7 +78,7 @@ submitBtn.onclick = () => {
 		},
 		dataType: "text",
 		success(data) {
-			if (data == "true")  {
+			if (data == "true") {
 				alert("비밀번호가 변경되었습니다. 다시 로그인해주세요.");
 				location.replace("/gyeongun/auth/signin");
 			} else {
